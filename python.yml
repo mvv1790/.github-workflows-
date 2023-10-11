@@ -1,0 +1,23 @@
+name: Python CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Replace 'x' with your desired Python version
+
+    - name: Install dependencies
+      run: pip install django # Replace with your actual dependency installation command
+
+    - name: Run tests
+      run: python -m unittest discover  # Replace with your test command
